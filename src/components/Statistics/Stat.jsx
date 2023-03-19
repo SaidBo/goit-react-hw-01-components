@@ -1,9 +1,9 @@
-export const Stat = ({ stat: { label, percentage, id } }) => {
+export const Stat = ({ stat: { label, percentage } }) => {
   return (
-    <div>
+    <>
       <span className="label">{label}</span>
       <span className="percentage">{percentage}%</span>
-    </div>
+    </>
   );
 };
 
