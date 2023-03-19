@@ -10,13 +10,15 @@ import friends from '../data/friends.json';
 import transactions from '../data/transactions.json';
 import { TransactionHistory } from './Transaction/TransactionHistory';
 
+import { Container } from './app.syled';
+
 export const App = () => {
   return (
-    <div>
+    <Container>
       <Profile user={user} />
       <StatList statistics={statistics} />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
-    </div>
+    </Container>
   );
 };
