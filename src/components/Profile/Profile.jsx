@@ -1,5 +1,17 @@
+
 import PropTypes from 'prop-types';
 import { FcRating, FcLikePlaceholder, FcManager } from 'react-icons/fc';
+import {
+  ProfileStyle,
+  Description,
+  Avatar,
+  Name,
+  Tag,
+  Location,
+  StatsProfileList,
+  StatsProfileItem,
+  Quantity,
+} from '../Profile/Profile.styled';
 
 export const Profile = ({
   user: {
@@ -11,32 +23,29 @@ export const Profile = ({
   },
 }) => {
   return (
-    <div className="profile">
-      <div className="description">
-        <img src={avatar} alt="User avatar" className="avatar" />
-        <p className="name">{username}</p>
-        <p className="tag">{tag}</p>
-        <p className="location">{location}</p>
-      </div>
+    <ProfileStyle>
+      <Description>
+        <Avatar src={avatar} alt="User avatar" />
+        <Name>{username}</Name>
+        <Tag>{tag}</Tag>
+        <Location>{location}</Location>
+      </Description>
 
-      <ul className="stats">
-        <li>
-          {/* <span class="label">Followers</span> */}
+      <StatsProfileList>
+        <StatsProfileItem>
           <FcManager />
-          <span className="quantity">{followers}</span>
-        </li>
-        <li>
-          {/* <span class="label">Views</span> */}
+          <Quantity>{followers}</Quantity>
+        </StatsProfileItem>
+        <StatsProfileItem>
           <FcRating />
-          <span className="quantity">{views}</span>
-        </li>
-        <li>
-          {/* <span className="label">Likes</span> */}
+          <Quantity>{views}</Quantity>
+        </StatsProfileItem>
+        <StatsProfileItem>
           <FcLikePlaceholder />
-          <span className="quantity">{likes}</span>
-        </li>
-      </ul>
-    </div>
+          <Quantity>{likes}</Quantity>
+        </StatsProfileItem>
+      </StatsProfileList>
+    </ProfileStyle>
   );
 };
 

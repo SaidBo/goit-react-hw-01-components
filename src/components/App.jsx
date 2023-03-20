@@ -10,7 +10,7 @@ import friends from '../data/friends.json';
 import transactions from '../data/transactions.json';
 import { TransactionHistory } from './Transaction/TransactionHistory';
 
-import { Container } from './app.syled';
+import { Container } from './App.styled';
 
 export const App = () => {
   return (
