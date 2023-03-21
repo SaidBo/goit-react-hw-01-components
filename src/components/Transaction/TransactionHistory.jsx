@@ -1,13 +1,15 @@
 import { TransactionItem } from './TransactionHistoryItem';
+import PropTypes from 'prop-types';
+import { TransactionsWraper, Th} from './Transaction.styled';
 
 export const TransactionHistory = ({ items }) => {
   return (
-    <table class="transaction-history">
+    <TransactionsWraper class="transaction-history">
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <Th>Type</Th>
+          <Th>Amount</Th>
+          <Th>Currency</Th>
         </tr>
       </thead>
       <tbody>
@@ -15,6 +17,17 @@ export const TransactionHistory = ({ items }) => {
           <TransactionItem item={item} />
         ))}
       </tbody>
-    </table>
+    </TransactionsWraper>
   );
+};
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };

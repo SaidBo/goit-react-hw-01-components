@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 
+import { FriendStatusOnline, FriendStatusOffline, AvatarFriend, NameFriend } from '../Friends/Friends.styled';
+
 export const Friend = ({ friend: { avatar, name, isOnline } }) => {
   return (
     <>
       {/* <span className="status">{isOnline}</span> */}
       {isOnline ? <FriendStatusOnline /> : <FriendStatusOffline />}
 
-      <img className="avatar" src={avatar} alt="User avatar" width="48" />
-      <p className="name">{name}</p>
+      <AvatarFriend src={avatar} alt="User avatar" width="48" />
+      <NameFriend className="name">{name}</NameFriend>
     </>
   );
 };

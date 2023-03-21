@@ -1,17 +1,33 @@
 import { Stat } from './Stat';
+import PropTypes from 'prop-types';
+
+import {
+  StatisticWraper,
+  StatisticTitle,
+  StatisticList,
+  StatisticItem,
+} from './Statistics.styled';
 
 export const StatList = ({ title, statistics }) => {
   return (
-    <section className="statistics">
-      {title && <h2 className="title">{title}</h2>}
+    <StatisticWraper>
+      {title && <StatisticTitle>{title}</StatisticTitle>}
 
-      <ul className="stat-list">
+      <StatisticList className="stat-list">
         {statistics.map(stat => (
-          <li key={stat.id}>
+          <StatisticItem key={stat.id}>
             <Stat stat={stat} />
-          </li>
+          </StatisticItem>
         ))}
-      </ul>
-    </section>
+      </StatisticList>
+    </StatisticWraper>
   );
+};
+
+StatList.propTypes = {
+  title: PropTypes.string,
+
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
 };
