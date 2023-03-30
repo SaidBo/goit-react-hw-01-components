@@ -10,6 +10,8 @@ export const Stat = ({ stat: { label, percentage } }) => {
 };
 
 Stat.propTypes = {
-  label: PropTypes.string.isRequired,
-  percentage: PropTypes.number.isRequired,
+  stat: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    percentage: PropTypes.number.isRequired,
+  }),
 };
